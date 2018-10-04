@@ -79,45 +79,7 @@
 	<br>
 	<div class="container">
 		<div class="row">
-			<div class="col-5 ">
 
-				<div class="card bg-light on-front">
-					<div class="card-header">Справка</div>
-
-					<div class="card-body">
-
-						<div>
-							<h4>О чем этот сайт?</h4>
-
-							<button id="delete" type="button" class="btn btn-outline-danger btn-sm ">Удалить деталь</button>
-							<div class="btn-group" role="group">
-								<button id="btnGroupDrop2" type="button" class="btn btn-outline-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Добавить деталь</button>
-								<div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
-									<a class="dropdown-item" id="load-1" href="#">МЕШКОВАТЫЙ КАРМАН</a>
-									<a class="dropdown-item" id="load-2" href="#">ПУГОВИЦА</a>
-									<a class="dropdown-item" id="load-3" href="#">ЗАКРЫВАЮЩИЙСЯ КАРМАН</a>
-									<a class="dropdown-item" id="load-4" href="#">СТРЕЛКИ</a>
-								</div>
-
-							</div>
-							<!--button id="load-1" type="button" class="btn btn-outline-info btn-block">Карман</button>
-					<button id="load-2" type="button" class="btn btn-outline-info btn-block">Пуговка</button-->
-
-
-
-							<!--button id="ready" type="button" class="btn btn-outline-success">Готово</button-->
-						</div>
-
-						<div id="cardbox2">
-						</div>
-						<form id="post_info">
-							{% csrf_token %}
-							<button id="ready" type="submit" class="btn btn-outline-success btn-sm">Готово</button>
-						</form>
-					</div>
-				</div>
-
-			</div>
 			<div class="col-7">
 
 
@@ -216,13 +178,13 @@
 				});
 				document.getElementById("load-2").addEventListener("click",
 					function(a) {
-						q.load("{% static 'constructor/assets/Button.json' %}", x, null, null, !0)
+						q.load("assets/Button.json", x, null, null, !0)
 					});
 				document.getElementById("load-3").addEventListener("click", function(a) {
-					q.load("{% static 'constructor/assets/Closed_pocket.json' %}", x, null, null, !0)
+					q.load("assets/Closed_pocket.json", x, null, null, !0)
 				});
 				document.getElementById("load-4").addEventListener("click", function(a) {
-					q.load("{% static 'constructor/assets/Arrow.json' %}", x, null, null, !0)
+					q.load("assets/Arrow.json", x, null, null, !0)
 				});
 
 
