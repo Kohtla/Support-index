@@ -1,1 +1,489 @@
-<h1>Hello, github!</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Syndic Workshop</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	
+	<!-- Main CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!-- Font Awesome -->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+	<link rel="stylesheet" type="text/css" href="Syndicate.min.css">
+	<script type="text/javascript" src="b4w.simple.min.js"></script>
+</head>
+
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="{%url 'main:index'%}">SYNDIC WORKSHOP</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+
+
+
+
+
+				<li class="nav-item dropdown ">
+					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="proflink">Добавить деталь</span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" id="load-1" href="#">Мешковатый карман</a>
+
+
+						<a class="dropdown-item" id="load-2" href="#">Пуговицы</a>
+
+
+						<a class="dropdown-item" id="load-3" href="#">Закрывающийся карман</a>
+
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<button class="btn btn-secondary my-2 my-sm-0" id="delete" type="submit">Удалить деталь</button>
+				</li>
+
+			</ul>
+
+
+
+			<ul class="navbar-nav">
+
+			</ul>
+
+			<a class="navbar-brand" href="#">Это пример страницы</a>
+
+		</div>
+	</nav>
+
+	<div id="controls-container">
+		<!--div class="button-container">
+			<div class="delete-container button data-button">
+				<div id="delete"></div>
+			</div>
+			<div id="load-1" class="button data-button"></div>
+			<div id="load-2" class="button data-button"></div>
+			<div id="ready" class="button data-button"></div>
+		</div-->
+	</div>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-5 ">
+
+				<div class="card bg-light on-front">
+					<div class="card-header">Справка</div>
+
+					<div class="card-body">
+
+						<div>
+							<h4>О чем этот сайт?</h4>
+
+							<button id="delete" type="button" class="btn btn-outline-danger btn-sm ">Удалить деталь</button>
+							<div class="btn-group" role="group">
+								<button id="btnGroupDrop2" type="button" class="btn btn-outline-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Добавить деталь</button>
+								<div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
+									<a class="dropdown-item" id="load-1" href="#">МЕШКОВАТЫЙ КАРМАН</a>
+									<a class="dropdown-item" id="load-2" href="#">ПУГОВИЦА</a>
+									<a class="dropdown-item" id="load-3" href="#">ЗАКРЫВАЮЩИЙСЯ КАРМАН</a>
+									<a class="dropdown-item" id="load-4" href="#">СТРЕЛКИ</a>
+								</div>
+
+							</div>
+							<!--button id="load-1" type="button" class="btn btn-outline-info btn-block">Карман</button>
+					<button id="load-2" type="button" class="btn btn-outline-info btn-block">Пуговка</button-->
+
+
+
+							<!--button id="ready" type="button" class="btn btn-outline-success">Готово</button-->
+						</div>
+
+						<div id="cardbox2">
+						</div>
+						<form id="post_info">
+							{% csrf_token %}
+							<button id="ready" type="submit" class="btn btn-outline-success btn-sm">Готово</button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-7">
+
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+	<div id="main_canvas_container"></div>
+
+
+
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-xs-12">
+					<p>Лёня Поддержка 2018
+						<a href="https://t-do.ru/Kohtla"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+						<a href="https://www.instagram.com/jarve_kohtla/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+						<a href="https://twitter.com/JarveKohtla"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+	<!-- Blend4web script below -->
+
+	<script>
+		b4w.register("Syndicate_main", function(B, b) {
+
+
+
+			function C(a, e) {
+				e ? q.load("assets/Syndicate.json", D, null) : console.log("b4w init failure")
+			}
+
+			function D(a) {
+				E();
+				F();
+				p.enable_camera_controls();
+				console.log("Камера включена");
+				//a = document.createElement("div");
+				//a.className = "main_sliders_container";
+				//a.setAttribute("id", "main_sliders_container");
+				//var cardbox = document.getElementById("cardbox");
+				//cardbox.appendChild(a);
+
+				g("chest_id", "Обхват груди", 60, 150);
+				g("height_id", "Высота изделия", 40, 150);
+				g("neck_id", "Обхват шеи", 20, 50);
+				g("sleeves_id", "Длина рукава", 15, 100);
+				g("shoulder_id", "Пройма", 15, 80);
+				create_rotator("rotator", "Поворот детали", 0, 360);
+				create_sizer("obj_size", "Размер детали", 0, 5);
+			}
+
+			function x(a) {
+				a = h.get_all_objects("ALL", a);
+				for (var e = 0; e < a.length; e++) {
+					var c = a[e];
+					if (u.has_physics(c)) {
+						u.enable_simulation(c);
+						var f = k.create_collision_sensor(c, "Details"),
+							d = k.create_selection_sensor(c, !0);
+						c == r && k.set_custom_sensor(d, 1);
+						k.create_sensor_manifold(c, "COLLISION", k.CT_CONTINUOUS, [f, d], G,
+							H);
+						(f = v.get_parent(c)) && v.is_armature(f) ? m.set_translation_v(f, y) : m.set_translation_v(c, y)
+					}
+					v.is_mesh(c) && h.show_object(c)
+				}
+			}
+
+			function G(a) {
+				return a[1]
+			}
+
+			function H(a, e, c) {
+				1 == c && (k.get_sensor_value(a, e, 0) ? h.set_outline_color(I) : h.set_outline_color(J))
+			}
+
+			function F() {
+				document.getElementById("controls-container").style.display = "block";
+				K();
+				console.log("Init_controls");
+				document.getElementById("load-1").addEventListener("click", function(a) {
+					q.load("{% static 'constructor/assets/Pocket.json' %}", x, null, null, !0)
+				});
+				document.getElementById("load-2").addEventListener("click",
+					function(a) {
+						q.load("{% static 'constructor/assets/Button.json' %}", x, null, null, !0)
+					});
+				document.getElementById("load-3").addEventListener("click", function(a) {
+					q.load("{% static 'constructor/assets/Closed_pocket.json' %}", x, null, null, !0)
+				});
+				document.getElementById("load-4").addEventListener("click", function(a) {
+					q.load("{% static 'constructor/assets/Arrow.json' %}", x, null, null, !0)
+				});
+
+
+
+				document.getElementById("delete").addEventListener("click", function(a) {
+					r && (a = h.get_object_data_id(r), q.unload(a), r = null)
+				})
+			}
+
+			function K() {
+				for (var a = ["delete"], e = 0; e < a.length; e++) {
+					var c = a[e];
+					document.getElementById(c).addEventListener("mousedown", function(a) {
+						a.target.parentNode.classList.add("active")
+					});
+					document.getElementById(c).addEventListener("mouseup", function(a) {
+						a.target.parentNode.classList.remove("active")
+					});
+					document.getElementById(c).addEventListener("touchstart", function(a) {
+						a.target.parentNode.classList.add("active")
+					});
+					document.getElementById(c).addEventListener("touchend", function(a) {
+						a.target.parentNode.classList.remove("active")
+					})
+				}
+			}
+
+
+
+			function E() {
+				var a = new Float32Array(3),
+					e = w.create_pline(),
+					c = new Float32Array(3),
+					f = l.create(),
+					d = l.create(),
+					b = z.create(),
+					k = function(a, c, e, h, g, k) {
+						l.set_trans(g, f);
+						z.rotationTo(L.AXIS_Z, k, b);
+						m.set_rotation_v(n, b);
+						l.set_quat(b, f);
+						e && M.is_animated(e) && (m.get_tsr(e, d), l.invert(d, d), l.multiply(d, f, f), a = l.get_trans_view(f), c = l.get_quat_view(f), N.append_stiff(n, e, a, c));
+						m.set_tsr(n, f)
+					},
+					g = O.get_container();
+
+
+				g.addEventListener("mousedown", function(a) {
+					n = h.pick_object(a.clientX, a.clientY);
+
+					if (r != n) {
+						if (r)
+							h.clear_outline_anim(r);
+						if (n)
+							h.apply_outline_anim(n, 1, 1, 0);
+					}
+
+					r = n;
+					if (r) {
+						p.disable_camera_controls();
+						var sizer = document.getElementById("obj_size_input");
+						var sizer_text = document.getElementById("obj_size");
+
+						var size = m.get_scale(r).toFixed(2);
+
+
+
+						sizer.value = size;
+						sizer_text.textContent = size;
+					}
+
+
+
+
+					//p.disable_camera_controls();
+
+
+
+				}, !1);
+				g.addEventListener("mouseup", function(a) {
+					n = null
+					p.enable_camera_controls();
+					//console.log("Камера включена");
+				}, !1);
+				g.addEventListener("mousemove", function(b) {
+					if (n) {
+						var d = b.clientX;
+						b = b.clientY;
+						p.enable_camera_controls();
+
+						P.calc_ray(h.get_active_camera(), d, b, e);
+						w.get_pline_directional_vec(e, c);
+						Q.scale(c, 100, c);
+						d = h.get_active_camera();
+						u.append_ray_test_ext(d, a, c, "ANY", k, !0, !1, !0, !0)
+					}
+				}, !1)
+			}
+
+			function g(a, rus_name, b, c) {
+				function e(a) {
+					g.textContent = d.value
+				}
+				var d = R(a, rus_name),
+					g = document.getElementById(a);
+				d.min = b;
+				d.max = c;
+				d.step = 1;
+				d.value = b;
+				g.textContent = d.value;
+				!window.ActiveXObject &&
+					"ActiveXObject" in window ? d.onchange = e : d.oninput = e
+			}
+
+
+
+			function create_rotator(a, rus_name, b, c) {
+
+				function e(a) {
+					g.textContent = d.value;
+
+
+					var rad = d.value - angle;
+					console.log(rad);
+					rad = L.deg_to_rad(rad);
+					//console.log(rad);
+					m.rotate_z_local(r, rad);
+					angle = d.value;
+
+				}
+				var d = init_rot_size(a, rus_name),
+					g = document.getElementById(a);
+				d.min = b;
+				d.max = c;
+				d.step = 1;
+				d.value = b;
+				g.textContent = d.value;
+				!window.ActiveXObject &&
+					"ActiveXObject" in window ? d.onchange = e : d.oninput = e
+			}
+
+			function create_sizer(a, rus_name, b, c) {
+				function e(a) {
+					g.textContent = d.value;
+					var sc = d.value;
+					console.log(sc);
+					m.set_scale(r, sc);
+
+				}
+				var d = init_rot_size(a, rus_name),
+					g = document.getElementById(a);
+				d.min = b;
+				d.max = c;
+				d.step = 0.1;
+				d.value = b;
+				g.textContent = d.value;
+				!window.ActiveXObject &&
+					"ActiveXObject" in window ? d.onchange = e : d.oninput = e
+			}
+
+			function init_rot_size(a, rus_name) {
+				var b = document.createElement("div");
+				b.className = "slider_container";
+				var c = document.createElement("div");
+				c.className = "text_label";
+				var span = document.createElement("span");
+				//c.className = "text_label";
+				span.textContent = rus_name;
+				span.className = "";
+				c.appendChild(span);
+				var f = document.createElement("input");
+				f.className = "input_slider";
+				f.setAttribute("id", a + "_input");
+				f.setAttribute("type", "range");
+				var d = document.createElement("label");
+				//d.className = "value_label";
+				d.setAttribute("id", a);
+				b.appendChild(c);
+				b.appendChild(f);
+				b.appendChild(d);
+				document.getElementById("cardbox2").appendChild(b);
+				return f
+			}
+
+			function R(a, rus_name) {
+				var b = document.createElement("div");
+				b.className = "slider_container";
+				var c = document.createElement("div");
+				c.className = "text_label";
+				var span = document.createElement("span");
+				//c.className = "text_label";
+				span.textContent = rus_name;
+				span.className = "";
+				c.appendChild(span);
+				var f = document.createElement("input");
+				f.className = "input_slider";
+				f.setAttribute("type", "range");
+				var d = document.createElement("label");
+				//d.className = "value_label";
+				d.setAttribute("id", a);
+				b.appendChild(c);
+				b.appendChild(f);
+				b.appendChild(d);
+				document.getElementById("cardbox").appendChild(b);
+				return f
+			}
+			var M = b("animation"),
+				N = b("constraints"),
+				z = b("quat"),
+				Q = b("vec3"),
+				P = b("camera"),
+				k = b("controls"),
+				w = b("math"),
+				v = b("objects"),
+				u = b("physics"),
+				S = b("version"),
+				p = b("app"),
+				T = b("config"),
+				q = b("data");
+			b("preloader");
+			b("version");
+			b("mouse");
+			var h = b("scenes"),
+				m = b("transform"),
+				O = b("container"),
+				l = b("tsr"),
+				L = b("util");
+			b("geometry");
+			var angle = 0;
+			var r = null,
+				J = [0, 1, 0],
+				I = [1, 0, 0];
+			new Float32Array(2);
+			var y = new Float32Array(3);
+			new Float32Array(3);
+			new Float32Array(3);
+			new Float32Array(3);
+			new Float32Array(4);
+			T.set("physics_uranium_path", "uranium/");
+			w.create_pline();
+			var n =
+				null,
+				A = "DEBUG" === S.type(),
+				t = T.get_assets_path("Syndicate");
+			B.init = function() {
+				p.init({
+					autoresize: !0,
+					callback: C,
+					canvas_container_id: "main_canvas_container",
+					physics_enabled: !0,
+
+					assets_dds_available: !A,
+					assets_min50_available: !A,
+					console_verbose: !0
+				})
+			}
+		});
+		b4w.require("Syndicate_main").init();
+	</script>
+
+
+</body>
+
+</html>
